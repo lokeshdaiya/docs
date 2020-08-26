@@ -1,0 +1,172 @@
+/* ******************************************* */
+/* CSS Styles for RibbonBar of Web.TextControl */
+/* ******************************************* */
+
+/* All ribbon tabs, groups and buttons are visible by default. */
+/* Simply uncomment the CSS property 'display' to hide the complete tab, the group or a single button. */
+
+/* FILE MENU */
+
+
+/* #tabFile {
+  display: none !important;
+}
+
+#fileMnuItemNew {
+  display: none !important;
+}
+
+#fileMnuItemOpen {
+  display: none !important;
+}
+
+#fileMnuItemSave {
+  display: none !important;
+}
+
+#fileMnuItemSaveAs {
+  display: none !important;
+}
+
+#fileMnuItemPrintToPDF {
+  display: none !important;
+}
+
+#fileMnuItemOptions {
+  display: none !important;
+} */
+
+/* RIBBON TAB: HOME */
+
+/* #ribbonTabHome,
+#tabDefault {
+  display: none !important;
+} */
+
+/* Clipboard Group */
+
+/* #ribbonGroupClipboard {
+  display: none !important;
+} */
+
+/* #btnPaste {
+  display: none !important;
+} */
+
+/* #btnCut {
+  display: none !important;
+}
+
+#btnCopy {
+  display: none !important;
+}
+
+ */
+
+
+/* EditingGroup */
+
+/* #ribbonGroupEditing {
+  display: none !important;
+}
+
+#btnUndo {
+  display: none !important;
+}
+
+#btnRedo {
+  display: none !important;
+}
+
+#btnFind {
+  display: none !important;
+}
+
+#btnReplace {
+  display: none !important;
+} */
+
+/* RIBBON TAB: INSERT */
+
+/* #tabInsert {
+  display: none !important;
+} */
+
+/* Headers and Footers Group */
+
+/* #ribbonGroupHEadersAndFooters {
+  display: none !important;
+}
+
+#drpDnBtnInsertHeader {
+  display: none !important;
+}
+
+#drpDnBtnInsertFooter {
+  display: none !important;
+}
+
+#drpDnBtnInsertPageNum {
+  display: none !important;
+} */
+
+/* Text Group */
+
+/* #ribbonGroupText {
+  display: none !important;
+}
+
+#drpDnBtnInsertTextFrame {
+  display: none !important;
+}
+
+#btnInsertFile {
+  display: none !important;
+} */
+
+/* RIBBON TAB: VIEW */
+
+/* #tabView {
+  display: none !important;
+} */
+
+/* Zoom Group */
+
+/* #ribbonGroupZoom {
+  display: none !important;
+}
+
+#drpDnBtnZoom {
+  display: none !important;
+} */
+
+/* Proofing Group */
+
+/* #ribbonGroupProofing {
+  display: none !important;
+}
+
+#tglBtnEnableSpellCheck {
+  display: none !important;
+}
+
+#tglBtnEnableLangDetect {
+  display: none !important;
+}
+
+#tglBtnEnableHyphenation {
+  display: none !important;
+}
+
+#btnSetLanguage {
+  display: none !important;
+} */
+
+.ribbon-button-big-image-container img {
+  width: 28px;
+}
+
+/* 
+#tabReports {
+  display: none !important;
+} */

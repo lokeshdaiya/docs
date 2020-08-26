@@ -1,0 +1,213 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1 w-100 align-center">
+    TextControl POC
+  </span>
+</nav>
+<div class="pd-20">
+  <div class="pd-10">
+    <div class="inline-block mt-10 mb-10">
+      <div class="inline-block">
+        <label>Document Name </label>&nbsp;&nbsp;
+        <input type="text" name="name" [(ngModel)]="documentName" />&nbsp;&nbsp;
+        <input type="file" id="fileinput" (change)="openDocument($event)" />
+        <button type="button" class="btn btn-primary btn-save" (click)="onClickSave()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <iframe width="100%" height="100%" frameBorder="0" src="http://uat-delivery.acisk.com/delivery/aci"></iframe>
+  <!-- <i (click)="openModal(ConfirmGross)" class="fa fa-trash" aria-hidden="true"></i>
+   
+    <ng-template #ConfirmGross>
+      <div class="modal-body text-center">
+        <h5>Do you want to Delete?</h5>
+        <br />
+        <div class="clearfix">
+          <button type="button" class="btn btn-secondary pull-right cancel-btn  ml-10" (click)="decline()">No</button>
+          <button type="button" class="btn btn-bamul pull-right"
+            (click)="confirm(in , CreateIndentLineItem.controls.newIndtLItem.controls)">Yes</button>
+        </div>
+      </div>
+    </ng-template> -->
+
+
+
+  <div class="form-group">
+    <select style="width:277px;float:left;height:34px;" required name="Document" #refCountry="ngModel"
+      class="form-control" [(ngModel)]="selectedDoc">
+      <option value="undefined">View / Sign Document</option>
+      <option *ngFor="let doc of docs" [ngValue]="doc.name">
+        {{doc.name}}
+      </option>
+    </select>
+    <input (click)="onClickLoadDocument()" type="button" value="Load Document" style="margin-left:10px;height:34px;" />
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input autocomplete="off" (change)="toggleRibbonElement($event,'tabReports', 'tabDefault', false)"
+          class="form-check-input" type="checkbox"> {{showHideTab}} <strong>Reporting</strong> tab
+      </label>
+    </div>
+  </div>
+
+
+  <div id="accordion" class="hide">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            Open Form Fields
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="mb-20">
+            <button onclick="addDropDownFormField()" class="btn mt-3 btn-success mr-10">Insert
+              DropDown-Formfield</button>
+            <button onclick="addTextFormField()" class="btn mt-3 btn-success mr-10">Insert Text-Formfield</button>
+            <button onclick="addCheckFormField()" class="btn mt-3 btn-success mr-10">Insert Check-Formfield</button>
+            <button onclick="addComboFormField()" class="btn mt-3 btn-success mr-10">Insert Combo-Formfield</button>
+            <button onclick="addDateFormField()" class="btn mt-3 btn-success mr-10">Insert Date-Formfield</button>
+            <!-- <button (click)="addSignaturePane()" class="btn mt-3 btn-success mr-10">Insert Signature Pane</button> -->
+            <button onclick="looping()" class="btn mt-3 btn-success mr-10">FOR Loop</button>
+            <button onclick="insertField('customer')" class="btn mt-3 btn-success mr-10">Insert Merge Field</button>
+            <input (click)="onClickMergeDocument()" type="button" class="btn mt-3 btn-success mr-10"
+              value="Merge Document" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Button trigger modal -->
+  <!-- <div class="book">
+    <button  class='fas fa-book-open' style='font-size:30px;color:green' data-toggle="modal" (click)="openPopup()" data-target="#exampleModal">
+    </button>
+   </div> -->
+
+  <!-- <div class="book">
+    <i class='fas fa-book-open' style='font-size:48px;color:green' data-toggle="modal" (click)="openPopup()" data-target="#exampleModal"></i>
+  </div> -->
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog dialog" role="document">
+      <div class="modal-content source">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Model</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngFor="let item of popupData | keyvalue">
+            {{item.key}}:
+            <select class="form-control" (change)="popupValChange($event.target.value)">
+              <option selected value="">Select {{item.key}}</option>
+              <option *ngFor="let val of item.value" value="{{val}}/{{item.key}}">{{val}}
+              </option>
+            </select>
+            <!-- <b *ngFor="let val of item.value">{{val}}</b> -->
+  <!-- </div>
+        </div>
+        <div class="modal-footer">
+          <button mat-button data-dismiss="modal">Close</button>
+          <button mat-button>Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+
+
+  <div class="book">
+    <button class='fas fa-book-open' style='font-size:30px;color:green' data-toggle="modal" data-target="#form"
+      (click)="openPopup()">
+    </button>
+  </div>
+
+  <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <h3 class="modal-title" id="exampleModalLabel">Prompt</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="form-group" *ngFor="let item of popupData | keyvalue">
+              <label for="email1"> {{item.key}}:</label>
+              <select class="form-control" (change)="popupValChange($event.target.value)">
+                <option selected value="">Select {{item.key}}</option>
+                <option *ngFor="let val of item.value" value="{{val}}/{{item.key}}">{{val}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0 d-flex justify-content-center">
+            <button type="submit" class="btn btn-success" data-dismiss="modal">Save Changes</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="editorViewer">
+    <tx-document-editor width="1000px" height="1000px"
+      webSocketURL="wss://backend.textcontrol.com?access-token=1qk5QhtKhHNiOpgXitJl" dock="Window" toolbarDocked=true
+      documentPath="test.docx" isSelectionActivated=true showThumbnailPane=true>
+    </tx-document-editor>
+  </div>
+  <!-- <tx-document-viewer width="800px" height="800px"
+    basePath="https://backend.textcontrol.com?access-token=1qk5QhtKhHNiOpgXitJl" dock="Fill" toolbarDocked=true
+    documentPath="test.docx" isSelectionActivated=true showThumbnailPane=true documentData="SGVsbG8gdGhlcmU="
+    [signatureSettings]="{
+        showSignatureBar: true,
+        signatureBoxName: 'txsign',
+        redirectUrlAfterSignature: 'https://www.textcontrol.com',
+        ownerName: 'Paul', signerName: 'Jacob',
+        signerInitials: 'PK' }">
+  </tx-document-viewer> -->
+
+  <!-- <tx-document-viewer width="800px" height="800px"
+    basePath="https://backend.textcontrol.com?access-token=1qk5QhtKhHNiOpgXitJl" dock="Fill" toolbarDocked=true
+    documentPath="test.docx" isSelectionActivated=true showThumbnailPane=true [signatureSettings]="{
+          showSignatureBar: true,
+          signatureBoxName: 'txsign',
+          redirectUrlAfterSignature: 'https://www.textcontrol.com',
+          ownerName: 'Paul', signerName: 'Jacob',
+          signerInitials: 'PK' }">
+  </tx-document-viewer> -->
+
+  <!-- <tx-document-viewer width="800px" height="800px"
+    basePath="https://backend.textcontrol.com?access-token=1qk5QhtKhHNiOpgXitJl"
+    documentData="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"
+    dock="Fill" toolbarDocked=true isSelectionActivated=true showThumbnailPane=true>
+  </tx-document-viewer> -->
+  <div id="signViewer">
+    <tx-document-viewer width="800px" height="800px"
+      basePath="https://backend.textcontrol.com?access-token=1qk5QhtKhHNiOpgXitJl" dock="Fill" toolbarDocked=true
+      isSelectionActivated=true showThumbnailPane=true>
+    </tx-document-viewer>
+  </div>
+  <!-- <br />
+  <div>
+    {{documentData}}
+  </div> -->
+
+  <!-- <div class="fileButtons">
+    <input (change)="onChangeLoad($event)" type="file" id="fileinput1" />
+  </div> -->
+
+  <!-- <button id="txViewerHost" onclick="looping()">FOR Loop</button> -->
+</div>

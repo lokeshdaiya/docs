@@ -1,0 +1,94 @@
+.modal.show .modal-dialog {
+  margin-left: 40%;
+}
+
+#tabReports {
+  display: none !important;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.pd-10 {
+  padding: 10px;
+}
+
+.pd-20 {
+  padding: 20px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.align-center {
+  text-align: center;
+}
+
+input[type=file] {
+  width: 100px;
+  color: transparent;
+}
+
+.btn-save {
+  padding: 0px 20px 0px 20px;
+  line-height: 23px;
+  /* margin-top: -5px; */
+  margin-left: 5px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+#signViewer {
+  display: none;
+}
+
+#editorViewer {
+  display: block;
+}
+
+.modal {
+  position: absolute !important;
+  margin-top: 27%;
+  /* border: 1px solid black; */
+}
+
+.book {
+  margin-left: 84%;
+  /* margin-top:10%; */
+}
+
+.source {
+  margin-left: 26%;
+  margin-top: 0%;
+  border: 1px solid black;
+}
+
+.dialog {
+  margin-top: 5%;
+}
+
+.row {
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hide {
+  display: inline-flexbox;
+  width: 80%;
+}
